@@ -1,0 +1,91 @@
+---
+title: ForDOOM MVP-0
+---
+flowchart TD
+  Forum[Форум]
+
+  Forum --> User[Пользователи]
+
+  User --> Account[Аккаунт]
+  User --> Authentication[Аутентификация]
+
+  Authentication --> Register([Регистрация])
+  Authentication --> Login([Вход в систему])
+  Authentication -->  Logout([Выход из системы])
+
+  Account --> ChangeUserData([Изменить данные])
+  Account --> ChangePassword([Изменить пароль])
+
+  Topic[Темы]
+
+  Topic1([Создать тему])
+  Topic2([Удалить тему])
+  Topic3([Редактировать тему])
+
+  Topic --> Topic1
+  Topic --> Topic2
+  Topic --> Topic3
+
+  Message[Сообщения]
+
+  Message1([Отправить сообщение под темой])
+  Message2([Удалить сообщение под темой])
+
+  Message --> Message1
+  Message --> Message2
+
+  Topic --> Message
+
+  Forum --> Topic
+
+  Reaction[Реакции]
+
+  AddReaction([Добавить реакцию])
+  RemoveReaction([Удалить реакцию])
+
+  Reaction --> AddReaction
+  Reaction --> RemoveReaction
+
+  Message --> Reaction
+
+  TopicList[Лента тем]
+
+  Topic --> TopicList 
+  TopicList --> Search
+ 
+
+  Search[Поиск по форуму]
+
+  FindByUser([По автору])
+  FindByTopic([По теме])
+
+  Search --> FindByUser
+  Search --> FindByTopic
+
+  Filter[Фильтрация]
+
+  FilterByName([По имени])
+  FilterByDate([По новизне])
+  FilterByPopularity([По популярности])
+
+  Filter --> FilterByName
+  Filter --> FilterByDate
+  Filter --> FilterByPopularity
+
+  TopicList --> Filter
+  Search --> Filter
+
+  Karma[Система кармы]
+
+  User --> Karma
+
+  Like([Прибавить рейтинг])
+  Dislike([Отнять рейтинг])
+  Karma --> Like
+  Karma --> Dislike
+
+  
+
+
+
+
