@@ -2,6 +2,14 @@
 title: ForDOOM MVP-0
 ---
 flowchart TD
+  style User fill:#7fd
+  style Authentication fill:#7fd
+  style Account fill:#7fd
+  style Karma fill:#7fd
+  style TopicList fill:#7fd
+
+  style Topic fill:#bbf
+
   Forum[Форум]
 
   Forum --> User[Пользователи]
@@ -18,13 +26,15 @@ flowchart TD
 
   Topic[Темы]
 
-  Topic1([Создать тему])
-  Topic2([Удалить тему])
-  Topic3([Редактировать тему])
+  CreateTopic([Создать тему])
+  DeleteTopic([Удалить тему])
+  EditTopic([Редактировать тему])
+  CloseTopic([Закрыть тему])
 
-  Topic --> Topic1
-  Topic --> Topic2
-  Topic --> Topic3
+  Topic --> CreateTopic
+  Topic --> DeleteTopic
+  Topic --> EditTopic
+  Topic --> CloseTopic
 
   Message[Сообщения]
 
@@ -81,10 +91,14 @@ flowchart TD
 
   Like([Прибавить рейтинг])
   Dislike([Отнять рейтинг])
+  Sync([Синхронизация баллов])
+
   Karma --> Like
   Karma --> Dislike
+  Karma --> Sync
 
   
+
 
 
 
